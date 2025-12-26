@@ -1,13 +1,12 @@
-#ifndef DELTABOT_H
-#define DELTABOT_H
+#ifndef DRIVING_H
+#define DRIVING_H
 
 #include "ServoMotorSetting.h"
-#include <thread>
 
-class DeltaBot
+class Driving
 {
 public:
-    DeltaBot();
+    Driving();
 
     /**
      * Move the robot forward.
