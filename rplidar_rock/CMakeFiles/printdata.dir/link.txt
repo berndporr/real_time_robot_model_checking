@@ -1,1 +1,0 @@
-/usr/bin/c++ -O2 -g -DNDEBUG -Wl,--dependency-file=CMakeFiles/printdata.dir/link.d CMakeFiles/printdata.dir/printdata.cpp.o -o printdata  libc1lidarrpi.a -lrt
