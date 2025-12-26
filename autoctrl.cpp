@@ -1,6 +1,7 @@
 #include "agent.h"
-#include "alphabot.h"
-#include "a1lidarrpi.h"
+#include "ServoMotorSetting.h"
+#include "Driving.h"
+#include "c1lidarrpi.h"
 #include <vector>
 #include <signal.h>
 #include <iostream>
@@ -19,18 +20,18 @@ bool onestep = false;
 // 8192 data points 
 // (invalid: corrupted/outside detection zone)
 // scan event -> actor event handler
-class A1LidarScanEvent : public A1Lidar::DataInterface {
+class C1LidarScanEvent : public C1Lidar::DataInterface {
 public:
     Agent& agent;
 
-    A1LidarScanEvent(Agent& _agent) : agent(_agent) {};
+    C1LidarScanEvent(Agent& _agent) : agent(_agent) {};
 
 public:
-    void newScanAvail(float rpm, A1LidarData (&data)[A1Lidar::nDistance]) {
+    void newScanAvail(C1LidarData (&data)[C1Lidar::nDistance]) {
         int nData = 0;
 
         vector<Observation> obs;
-        for(A1LidarData &data: data) {
+        for(C1LidarData &data: data) {
             Observation ob; // invalid by default
             if (data.valid && data.r > minDetectRange 
                 && data.r < maxDetectRange) {
@@ -39,7 +40,7 @@ public:
             } 
             obs.push_back(ob);
         }
-        agent.eventNewRelativeCoordinates(rpm/60.0f, obs);
+        agent.eventNewRelativeCoordinates(obs);
     }
 };
 
@@ -75,8 +76,8 @@ int main(int argc, char* argv[]) {
 
     Agent agent;
 
-    A1LidarScanEvent data(agent);
-    A1Lidar lidar;
+    C1LidarScanEvent data(agent);
+    C1Lidar lidar;
 
     lidar.registerInterface(&data);
 
@@ -120,7 +121,7 @@ int main(int argc, char* argv[]) {
     agent.setTargetTask(targetTask);
     agent.setPlanner(planner);
 
-     try {
+    try {
         logger.printf("Starting motors...");
         alphabot.start();
         logger.printf("SUCCESS \n");
@@ -132,7 +133,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    logger.startResourceLogging("../10/usage.txt");
+    logger.startResourceLogging("/tmp/usage.txt");
     
     while(running) {
         // blockingff

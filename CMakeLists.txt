@@ -12,21 +12,11 @@ add_compile_options(-Wall)
 
 include(GNUInstallDirs)
 
-find_library(alphabot NAMES alphabot HINTS "${CMAKE_INSTALL_LIBDIR}")
-find_library(a1lidarrpi NAMES a1lidarrpi HINTS "${CMAKE_INSTALL_LIBDIR}")
-
 include_directories(${CURL_INCLUDE_DIR})
 
 add_subdirectory(agent)
+add_subdirectory(motors)
+add_subdirectory(rplidar_rock)
 
 add_executable(autoctrl autoctrl.cpp)
-target_link_libraries(autoctrl alphabot a1lidarrpi pigpio pthread agent ncurses)
-
-# add_executable(collect collect.cpp)
-# target_link_libraries(collect alphabot a1lidarrpi pigpio pthread)
-
-# add_executable(graph graph.cpp)
-# target_link_libraries(graph alphabot a1lidarrpi pigpio pthread agent ncurses)
-
-# add_executable(resource resource.cpp)
-# target_link_libraries(resource alphabot a1lidarrpi pigpio pthread agent ncurses)
+target_link_libraries(autoctrl c1lidarrpi deltabotmotors pthread agent ncurses)
