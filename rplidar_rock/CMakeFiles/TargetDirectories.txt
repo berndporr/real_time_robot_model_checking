@@ -1,0 +1,8 @@
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/c1lidarrpi.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/printdata.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/edit_cache.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/rebuild_cache.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/list_install_components.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/install.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/install/local.dir
+/home/bp1/deltabot_25-26/software/rplidar_rock/CMakeFiles/install/strip.dir
