@@ -25,7 +25,7 @@ public:
      * @param low_time Low time of the signal of one period
      * @param high_time High time of the signal of one period
      * @param chip PWM chip number
-     * @return int 0 if success, <0 if failed
+     * @return int >0 if success, otherwise failed
      */
     int start(int channel, float low_time, float high_time, int chip);
 
