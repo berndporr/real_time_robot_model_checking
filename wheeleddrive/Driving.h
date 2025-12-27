@@ -10,7 +10,7 @@ public:
      * @brief Inits the motors and switches on pwm
      *
      */
-    void start();
+    int start();
 
     /**
      * @brief Sets the speeds of the motors
@@ -20,7 +20,7 @@ public:
      * @param left_speed A value between -1 and +1
      * @param right_speed A speed value between -1 and +1
      */
-    void setMotorSpeeds(float left_speed, float right_speed);
+    int setMotorSpeeds(float left_speed, float right_speed);
 
     /**
      * Stop the robot and switch off PWM.

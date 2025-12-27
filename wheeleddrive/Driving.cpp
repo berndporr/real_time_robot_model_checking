@@ -1,10 +1,22 @@
 #include "Driving.h"
 
-void Driving::start()
+int Driving::start()
 {
-    leftMotor.start(leftChannel, leftChipNo);
-    rightMotor.start(rightChannel, rightChipNo);
+    int r = 0;
+    r = leftMotor.start(leftChannel, leftChipNo);
+    if (r < 0) {
+	fprintf(stderr,"Could not start left motor.\n");
+	stop();
+	return r;
+    }
+    r = rightMotor.start(rightChannel, rightChipNo);
+    if (r < 0) {
+	fprintf(stderr,"Could not start right motor.\n");
+	stop();
+	return r;
+    }
     setMotorSpeeds(0,0);
+    return r;
 }
 
 void Driving::stop()
@@ -15,8 +27,18 @@ void Driving::stop()
     rightMotor.stop();
 }
 
-void Driving::setMotorSpeeds(float left_speed, float right_speed)
+int Driving::setMotorSpeeds(float left_speed, float right_speed)
 {
-    leftMotor.setSpeed(left_speed);
-    rightMotor.setSpeed(-right_speed);
+    int r = 0;
+    r = leftMotor.setSpeed(left_speed);
+    if (r < 0) {
+	fprintf(stderr,"Could not set left motor speed.\n");
+	return r;
+    }
+    r = rightMotor.setSpeed(-right_speed);
+    if (r < 0) {
+	fprintf(stderr,"Could not set right motor speed.\n");
+	return r;
+    }
+    return r;
 }

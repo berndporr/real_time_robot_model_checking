@@ -11,7 +11,11 @@ int main(int argc, char *argv[])
     }
 
     Driving driving;
-    driving.start();
+    int r = driving.start();
+    if (r < 0) {
+	fprintf(stderr,"Motor drive not initialised. Aborting.\n");
+	return r;
+    }
 
     float left_speed = std::atof(argv[1]);
     float right_speed = std::atof(argv[2]);
@@ -19,6 +23,11 @@ int main(int argc, char *argv[])
     std::cout << "Setting speeds - Left: " << left_speed << ", Right: " << right_speed << std::endl;
 
     driving.setMotorSpeeds(left_speed, right_speed);
+    if (r < 0) {
+	fprintf(stderr,"Could not set motor speed. Aborting.\n");
+	driving.stop();
+	return r;
+    }
 
     std::cout << "Press any key to stop" << std::endl;
 

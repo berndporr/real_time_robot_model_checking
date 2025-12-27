@@ -94,8 +94,8 @@ private:
         return writeSYS(pwmpath + "/enable", 1);
     }
 
-    static constexpr int export_attempts = 50;
-    static constexpr int retry_delay_us = 10000;
+    static constexpr int export_attempts = 10;
+    static constexpr int retry_delay_us = 100000;
     static constexpr int DefaultDutyCycle = 20000000;
 };
 
