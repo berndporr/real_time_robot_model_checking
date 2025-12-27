@@ -66,7 +66,7 @@ void sig_handler(int signo) {
 
 int main(int argc, char* argv[]) { 
     signal(SIGINT, sig_handler);
-    logger.startLogging("../10/autoctrl.txt", true);
+    logger.startLogging("/tmp/autoctrl.txt", true);
 
     if (argc > 1) {
         onestep = true;
@@ -91,6 +91,17 @@ int main(int argc, char* argv[]) {
     }
 
     Driving driving;
+
+    try {
+        logger.printf("Starting Motor control...");
+        driving.start();
+        logger.printf("SUCCESS \n");
+    } 
+    catch (string m) {
+        logger.printf("Error: %s \n", m);
+        driving.stop();
+        return 0;
+    }
     MotorActionEvent takeAction(driving);
 
     shared_ptr<AbstractTask> targetTask = make_shared<StraightTask>();
@@ -131,7 +142,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    logger.startResourceLogging("../10/usage.txt");
+    logger.startResourceLogging("/tmp/usage.txt");
     
     while(running) {
         // blockingff

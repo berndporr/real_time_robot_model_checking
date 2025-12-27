@@ -8,9 +8,9 @@ class Driving
 public:
     /**
      * @brief Inits the motors and switches on pwm
-     *
+     * Throws an exeption if not successful.
      */
-    int start();
+    void start();
 
     /**
      * @brief Sets the speeds of the motors

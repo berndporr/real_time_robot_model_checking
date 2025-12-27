@@ -25,7 +25,9 @@ extern int nEvents;
 extern float detectionThreshold;
 extern bool onestep;
 
-const char run[] = "10";
+// dirctory for the map
+const char run[] = "/tmp/";
+
 const char west[] = "west";
 const char east[] = "east";
 const char northWest[] = "northWest";
@@ -515,7 +517,7 @@ struct StateMachineLTL : AbstractPlanner {
 	void saveDfsData(const vector<int> stackSize, const int stackMemory, 
 		const vector<int> stackCapacity, const vector<int> setSize, const int setMemory) {
 		char tmp[256];
-		sprintf(tmp,"../%s/dfs%03d.dat", run, nEvents);
+		sprintf(tmp,"%s/dfs%03d.dat", run, nEvents);
 		//fprintf(stderr,"%s\n",tmp);
 		FILE* f = fopen(tmp,"wt");
 		fprintf(f,"STACK:\nn\tcapacity\n");
@@ -569,7 +571,7 @@ private:
 
 	void saveMap(const vector<Observation>& obs) {
 		char tmp[256];
-		sprintf(tmp,"../%s/map%03d.dat", run, nEvents);
+		sprintf(tmp,"%s/map%03d.dat", run, nEvents);
 		//fprintf(stderr,"%s\n",tmp);
 		FILE* f = fopen(tmp,"wt");
 		fprintf(f,"x\ty\tr\tphi\n");

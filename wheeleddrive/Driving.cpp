@@ -1,22 +1,19 @@
 #include "Driving.h"
 
-int Driving::start()
+void Driving::start()
 {
     int r = 0;
     r = leftMotor.start(leftChannel, leftChipNo);
     if (r < 0) {
-	fprintf(stderr,"Could not start left motor.\n");
 	stop();
-	return r;
+	throw "Driving: could not start the left motor!";
     }
     r = rightMotor.start(rightChannel, rightChipNo);
     if (r < 0) {
-	fprintf(stderr,"Could not start right motor.\n");
 	stop();
-	return r;
+	throw "Driving: could not start the right motor!";
     }
     setMotorSpeeds(0,0);
-    return r;
 }
 
 void Driving::stop()
