@@ -35,8 +35,8 @@ private:
     // Constants for servo motor settings
     static constexpr int leftChannel = 0;
     static constexpr int rightChannel = 0;
-    static constexpr int leftChipNo = 8;
-    static constexpr int rightChipNo = 14;
+    static constexpr int leftChipNo = 2;
+    static constexpr int rightChipNo = 1;
 };
 
 #endif

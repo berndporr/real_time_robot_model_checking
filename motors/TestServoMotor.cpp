@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     }
 
     Driving driving;
+    driving.start();
 
     float left_speed = std::atof(argv[1]);
     float right_speed = std::atof(argv[2]);
