@@ -9,8 +9,6 @@
 
 using namespace std;
 
-#define DutyCycle 20000000 // The duty cycle for servo motor is always 20000000ns
-
 /**
  * @brief PWM control class, based on the sysfs interface to control the PWM output on the Rock 5B
  *
@@ -36,24 +34,23 @@ public:
      */
     inline int setDutyCycleNS(int ns) const
     {
-        const int r = writeSYS(pwmpath + "/duty_cycle", ns);
-        return r;
+        return writeSYS(pwmpath + "/duty_cycle", ns);
     }
 
     /**
      * @brief Set PWM period in nanoseconds
      */
-    void setPeriod(int ns) const
+    inline int setPeriod(int ns) const
     {
-        writeSYS(pwmpath + "/period", ns);
+        return writeSYS(pwmpath + "/period", ns);
     }
 
     /**
      * @brief Disable PWM output
      */
-    void disable() const
+    inline int disable() const
     {
-        writeSYS(pwmpath + "/enable", 0);
+        return writeSYS(pwmpath + "/enable", 0);
     }
 
     ~PWM()
@@ -76,6 +73,7 @@ private:
         FILE *const fp = fopen(filename.c_str(), "w");
         if (NULL == fp)
         {
+	    std::cerr << "Could not write to: " << filename << std::endl;
             return -1;
         }
         const int r = fprintf(fp, "%d", value);
@@ -97,7 +95,8 @@ private:
     }
 
     static constexpr int export_attempts = 50;
-    static constexpr int retry_delay_us = 100000;
+    static constexpr int retry_delay_us = 10000;
+    static constexpr int DefaultDutyCycle = 20000000;
 };
 
 #endif

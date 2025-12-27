@@ -4,6 +4,7 @@ void Driving::start()
 {
     leftMotor.start(leftChannel, leftChipNo);
     rightMotor.start(rightChannel, rightChipNo);
+    setMotorSpeeds(0,0);
 }
 
 void Driving::stop()
