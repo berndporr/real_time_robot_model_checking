@@ -6,12 +6,12 @@ void Driving::start()
     r = leftMotor.start(leftChannel, leftChipNo);
     if (r < 0) {
 	stop();
-	throw "Driving: could not start the left motor!";
+	throw std::runtime_error("Driving: could not start the left motor!");
     }
     r = rightMotor.start(rightChannel, rightChipNo);
     if (r < 0) {
 	stop();
-	throw "Driving: could not start the right motor!";
+	throw std::runtime_error("Driving: could not start the right motor!");
     }
     setMotorSpeeds(0,0);
 }

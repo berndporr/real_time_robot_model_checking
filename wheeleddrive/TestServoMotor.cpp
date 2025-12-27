@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
         driving.start();
 	fprintf(stderr,"SUCCESS!\n");
     } 
-    catch (string m) {
-        fprintf(stderr,"Error: %s \n", m.c_str());
+    catch (std::exception& m) {
+        fprintf(stderr,"Error: %s \n", m.what());
         driving.stop();
         return 0;
     }

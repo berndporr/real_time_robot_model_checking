@@ -23,7 +23,7 @@ void C1Lidar::stop() {
 
 void C1Lidar::start(const char* serial_port, const unsigned rpm) {
     drv = RPlidarDriver::CreateDriver(DRIVER_TYPE_SERIALPORT);
-    if (!drv) throw "Insufficient memory for driver";
+    if (!drv) throw std::runtime_error("Insufficient memory for driver");
 
     if (IS_OK(drv->connect(serial_port, baudrate))) {
         rplidar_response_device_info_t devinfo;
@@ -41,15 +41,15 @@ void C1Lidar::start(const char* serial_port, const unsigned rpm) {
                     th = std::thread(&C1Lidar::run,this);
                 }
             } else {
-                throw "Error getting device health.";
+                throw std::runtime_error("Error getting device health.");
             }
         } else {
             delete drv;
             drv = nullptr;
-            throw "Cannot retrieve device info";
+            throw std::runtime_error("Cannot retrieve device info");
         }
     } else {
-        throw "Cannot connect to the device";
+        throw std::runtime_error("Cannot connect to the device");
     }
 }
 

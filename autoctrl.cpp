@@ -84,8 +84,8 @@ int main(int argc, char* argv[]) {
         lidar.start();
         logger.printf("SUCCESS \n");
     } 
-    catch (string m) {
-        logger.printf("Error: %s \n", m);
+    catch (std::exception& m) {
+        logger.printf("Error: %s \n", m.what());
         lidar.stop();
         return 0;
     }
