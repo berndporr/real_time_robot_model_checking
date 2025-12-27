@@ -10,6 +10,13 @@ public:
 	void newScanAvail(C1LidarData (&data)[C1Lidar::nDistance]) {
 		for (C1LidarData &d : data) {
 			if (d.valid) {  // Only process valid data
+			    auto now = std::chrono::system_clock::now();
+			    auto duration = now.time_since_epoch();
+			    auto milliseconds
+				= std::chrono::duration_cast<std::chrono::milliseconds>(
+				    duration)
+				.count();
+			    std::cout << milliseconds << "\t";
 			    std::cout << d.x << "\t" << d.y 
 				      << "\t" << d.r << "\t" << d.phi 
 				      << "\t" << d.signal_strength << std::endl;
