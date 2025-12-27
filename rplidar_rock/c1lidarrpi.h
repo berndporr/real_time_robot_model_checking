@@ -20,13 +20,14 @@ using namespace rp::standalone::rplidar;
 /**
  * One of the 8192 distance datapoints
  **/
-class C1LidarData {
+class C1LidarData
+{
 public:
     /**
      * Distance in m
      **/
     float r;
-	
+
     /**
      * Angle in rad with phi=0 in front of the robot
      **/
@@ -55,12 +56,17 @@ public:
     bool valid = false;
 };
 
-
 /**
  * Class to continously acquire data from the LIDAR
  **/
-class C1Lidar {
+class C1Lidar
+{
 public:
+    /**
+     * @brief The RPM of the LIDAR which is const at 10Hz or 600RPM
+     * Unit here is RPM.
+     */
+    static constexpr float RPM = 10 * 60;
 
     /**
      * Number of distance readings during one 360 degree
@@ -82,8 +88,8 @@ public:
      * is the one which talks to the XV11.
      **/
     void start(const char *serial_port = "/dev/ttyS2",
-	       const unsigned rpm = 300);
-		   
+               const unsigned rpm = 300);
+
     /**
      * Stops the data acquisition
      **/
@@ -92,36 +98,39 @@ public:
     /**
      * Destructor which stops the motor and the data acquisition thread.
      **/
-    ~C1Lidar() {
-	stop();
+    ~C1Lidar()
+    {
+        stop();
     }
 
     /**
      * Callback interface which needs to be implemented by the user.
      **/
-    struct DataInterface {
-	virtual void newScanAvail(C1LidarData (&)[C1Lidar::nDistance]) = 0;
+    struct DataInterface
+    {
+        virtual void newScanAvail(C1LidarData (&)[C1Lidar::nDistance]) = 0;
     };
 
     /**
      * Register the callback interface here to receive data.
      **/
-    void registerInterface(DataInterface* di) {
-	dataInterface = di;
+    void registerInterface(DataInterface *di)
+    {
+        dataInterface = di;
     }
 
     /**
      * Returns the current databuffer which is not being written to.
      **/
-    inline C1LidarData (&getCurrentData())[nDistance]  {
-	readoutMtx.lock();
-	return c1LidarData[!currentBufIdx];
-	readoutMtx.unlock();
-    }
+inline C1LidarData (&getCurrentData()) [nDistance]
+{
+    readoutMtx.lock();
+    return c1LidarData[!currentBufIdx];
+    readoutMtx.unlock();
+}
 
-private:
-    static const int nPackets = 90;
-    DataInterface* dataInterface = nullptr;
+private : static const int nPackets = 90;
+    DataInterface *dataInterface = nullptr;
     void getData();
     void run();
     int tty_fd = 0;

@@ -1,5 +1,4 @@
 #include "agent.h"
-#include "ServoMotorSetting.h"
 #include "Driving.h"
 #include "c1lidarrpi.h"
 #include <vector>
@@ -40,7 +39,7 @@ public:
             } 
             obs.push_back(ob);
         }
-        agent.eventNewRelativeCoordinates(obs);
+        agent.eventNewRelativeCoordinates(C1Lidar::RPM/60.0f, obs);
     }
 };
 
@@ -49,12 +48,11 @@ public:
 // initiated by actor event handler
 class MotorActionEvent : public ActionInterface {
 public:
-    MotorActionEvent(AlphaBot& _alphabot) : alphabot(_alphabot) {}
+    MotorActionEvent(Driving& _driving) : driving(_driving) {}
 
-    AlphaBot& alphabot;
+    Driving& driving;
     virtual void executeMotorAction(float l, float r) {
-        alphabot.setLeftWheelSpeed(l);
-        alphabot.setRightWheelSpeed(r);
+        driving.setMotorSpeeds(l,r);
     }
 };
 
@@ -92,8 +90,8 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    AlphaBot alphabot;
-    MotorActionEvent takeAction(alphabot);
+    Driving driving;
+    MotorActionEvent takeAction(driving);
 
     shared_ptr<AbstractTask> targetTask = make_shared<StraightTask>();
 
@@ -121,19 +119,19 @@ int main(int argc, char* argv[]) {
     agent.setTargetTask(targetTask);
     agent.setPlanner(planner);
 
-    try {
+     try {
         logger.printf("Starting motors...");
-        alphabot.start();
+        driving.start();
         logger.printf("SUCCESS \n");
     }
     catch (string m) {
         logger.printf("Error: %s \n", m);
         lidar.stop();
-        alphabot.stop();
+        driving.stop();
         return 0;
     }
 
-    logger.startResourceLogging("/tmp/usage.txt");
+    logger.startResourceLogging("../10/usage.txt");
     
     while(running) {
         // blockingff
@@ -148,6 +146,6 @@ int main(int argc, char* argv[]) {
     }
 
     lidar.stop();
-    alphabot.stop();
+    driving.stop();
     return 0;
 }
