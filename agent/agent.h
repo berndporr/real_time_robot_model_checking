@@ -529,9 +529,9 @@ struct StateMachineLTL : AbstractPlanner {
 			fprintf(f,"%d\n", setSize[i]);
 		}
 		fprintf(f,"COMPILE MEM: %d bytes", + setMemory);
-		fprintf(f,"\n\nADJ. LIST COMPILE MEM: %d bytes", sizeof(graph) + sizeof(list<int>) * nStates);
-		fprintf(f,"\nSTATE SIZE: %d bytes", sizeof(int));
-		fprintf(f,"\nSTATE SPACE SIZE: %d bytes", sizeof(int) * nStates);
+		fprintf(f,"\n\nADJ. LIST COMPILE MEM: %ld bytes", sizeof(graph) + sizeof(list<int>) * nStates);
+		fprintf(f,"\nSTATE SIZE: %ld bytes", sizeof(int));
+		fprintf(f,"\nSTATE SPACE SIZE: %ld bytes", sizeof(int) * nStates);
 		fclose(f);
 	}	
 };
