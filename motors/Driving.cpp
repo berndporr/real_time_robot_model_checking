@@ -1,39 +1,21 @@
 #include "Driving.h"
 
-Driving::Driving()
-    : leftMotor(leftChannel, low_time, high_time, leftChipNo),
-      rightMotor(rightChannel, low_time, high_time, rightChipNo)
+void Driving::start()
 {
+    leftMotor.start(leftChannel, leftChipNo);
+    rightMotor.start(rightChannel, rightChipNo);
 }
 
-void Driving::Forward(float speed) // Move the robot forward
+void Driving::stop()
 {
-    SetMotorSpeed(speed, speed);
+    leftMotor.setSpeed(0);
+    rightMotor.setSpeed(0);
+    leftMotor.stop();
+    rightMotor.stop();
 }
 
-void Driving::Backward(float speed) // Move the robot backward
+void Driving::setMotorSpeeds(float left_speed, float right_speed)
 {
-    SetMotorSpeed(-speed, -speed);
-}
-
-void Driving::TurnLeft(float speed) // Turn the robot to the left
-{
-    SetMotorSpeed(speed / 2.0f, speed);
-}
-
-void Driving::TurnRight(float speed) // Turn the robot to the right
-{
-    SetMotorSpeed(speed, speed / 2.0f);
-}
-
-void Driving::Stop() // Stop the robot
-{
-    leftMotor.StopMotor();
-    rightMotor.StopMotor();
-}
-
-void Driving::SetMotorSpeed(float left_speed, float right_speed)
-{
-    leftMotor.ChangeLeftSpeed(left_speed);
-    rightMotor.ChangeRightSpeed(-right_speed);
+    leftMotor.setSpeed(left_speed);
+    rightMotor.setSpeed(-right_speed);
 }

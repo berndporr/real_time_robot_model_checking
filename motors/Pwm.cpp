@@ -1,6 +1,6 @@
 #include "Pwm.h"
 
-int PWM::StartPWM(int channel, float low_time, float high_time, int chip)
+int PWM::start(int channel, float low_time, float high_time, int chip)
 {
     chippath = "/sys/class/pwm/pwmchip" + to_string(chip);
     pwmpath = chippath + "/pwm" + to_string(channel);
@@ -20,9 +20,9 @@ int PWM::StartPWM(int channel, float low_time, float high_time, int chip)
 	    return -1;
 	}
     }
-    per = CalculateFre(low_time, high_time);
-    SetPeriod(per);
-    SetDutyCycleNS(DutyCycle);
+    per = calculateFre(low_time, high_time);
+    setPeriod(per);
+    setDutyCycleNS(DutyCycle);
     int r = enable();
     return r;
 }

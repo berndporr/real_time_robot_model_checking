@@ -29,23 +29,23 @@ public:
      * @param chip PWM chip number
      * @return int 0 if success, <0 if failed
      */
-    int StartPWM(int channel, float low_time, float high_time, int chip);
+    int start(int channel, float low_time, float high_time, int chip);
 
     /**
      * @brief Set duty cycle in nanoseconds
      */
-    inline int SetDutyCycleNS(int ns) const
+    inline int setDutyCycleNS(int ns) const
     {
-        const int r = WriteSYS(pwmpath + "/duty_cycle", ns);
+        const int r = writeSYS(pwmpath + "/duty_cycle", ns);
         return r;
     }
 
     /**
      * @brief Set PWM period in nanoseconds
      */
-    void SetPeriod(int ns) const
+    void setPeriod(int ns) const
     {
-        WriteSYS(pwmpath + "/period", ns);
+        writeSYS(pwmpath + "/period", ns);
     }
 
     /**
@@ -53,7 +53,7 @@ public:
      */
     void disable() const
     {
-        WriteSYS(pwmpath + "/enable", 0);
+        writeSYS(pwmpath + "/enable", 0);
     }
 
     ~PWM()
@@ -71,7 +71,7 @@ private:
     /**
      * @brief Write an integer value to a sysfs file
      */
-    inline int WriteSYS(std::string filename, int value) const
+    inline int writeSYS(std::string filename, int value) const
     {
         FILE *const fp = fopen(filename.c_str(), "w");
         if (NULL == fp)
@@ -83,7 +83,7 @@ private:
         return r;
     }
 
-    int CalculateFre(float low_time, float high_time)
+    int calculateFre(float low_time, float high_time)
     {
         return (low_time + high_time) * 1000000;
     }
@@ -93,7 +93,7 @@ private:
      */
     int enable() const
     {
-        return WriteSYS(pwmpath + "/enable", 1);
+        return writeSYS(pwmpath + "/enable", 1);
     }
 
     static constexpr int export_attempts = 50;
