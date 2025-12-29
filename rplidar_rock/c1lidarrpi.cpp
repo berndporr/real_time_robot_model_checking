@@ -63,7 +63,7 @@ void C1Lidar::getData() {
 	if (SL_IS_OK(op_result)) {
 		drv->ascendScanData(nodes, count);
 		for (int pos = 0; pos < (int)count ; ++pos) {
-			float angle = M_PI - nodes[pos].angle_z_q14 * (90.f / 16384.f / (180.0f / M_PI));
+			float angle = - nodes[pos].angle_z_q14 * (90.f / 16384.f / (180.0f / M_PI));
 			float dist = nodes[pos].dist_mm_q2/4000.0f;
 			if (dist > 0) {
 				//fprintf(stderr,"%d,phi=%f,r=%f\n",j,angle,dist);
