@@ -66,7 +66,7 @@ void sig_handler(int signo) {
 
 int main(int argc, char* argv[]) { 
     signal(SIGINT, sig_handler);
-    logger.startLogging("/tmp/autoctrl.txt", true);
+    logger.startLogging("/data/deltabot/autoctrl.txt", true);
 
     if (argc > 1) {
         onestep = true;
@@ -142,7 +142,8 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    logger.startResourceLogging("/tmp/usage.txt");
+
+    logger.startResourceLogging("/data/deltabot/usage.txt");
     
     while(running) {
         // blockingff

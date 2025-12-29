@@ -498,7 +498,7 @@ struct StateMachineLTL : AbstractPlanner {
 
 	void saveObs(const char* name, const vector<Observation>& obs) {
 		char tmp[256];
-		sprintf(tmp,"../%s/%s%03d.dat", run, name, nEvents);
+		sprintf(tmp,"/data/deltabot/%s%03d.dat", name, nEvents);
 		//fprintf(stderr,"%s\n",tmp);
 		FILE* f = fopen(tmp,"wt");
 		fprintf(f,"x\ty\tr\tphi\n");
@@ -517,7 +517,7 @@ struct StateMachineLTL : AbstractPlanner {
 	void saveDfsData(const vector<int> stackSize, const int stackMemory, 
 		const vector<int> stackCapacity, const vector<int> setSize, const int setMemory) {
 		char tmp[256];
-		sprintf(tmp,"%s/dfs%03d.dat", run, nEvents);
+		sprintf(tmp,"/data/deltabot/dfs%03d.dat", nEvents);
 		//fprintf(stderr,"%s\n",tmp);
 		FILE* f = fopen(tmp,"wt");
 		fprintf(f,"STACK:\nn\tcapacity\n");
@@ -571,7 +571,7 @@ private:
 
 	void saveMap(const vector<Observation>& obs) {
 		char tmp[256];
-		sprintf(tmp,"%s/map%03d.dat", run, nEvents);
+		sprintf(tmp,"/data/deltabot/map%03d.dat", nEvents);
 		//fprintf(stderr,"%s\n",tmp);
 		FILE* f = fopen(tmp,"wt");
 		fprintf(f,"x\ty\tr\tphi\n");
