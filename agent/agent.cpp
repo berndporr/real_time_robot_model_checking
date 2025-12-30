@@ -166,7 +166,7 @@ AbstractTask::TaskResult StraightTask::taskExecutionStep(float samplingrate,
 	// delay to stop things catching 
 	// but better if distance dependent 
 	// on the motor speed
-	if (taskDuration > 0.5) {
+	if (taskDuration > 0.5 * 1.15) {
 		for (unsigned i = 0; i < obs.size(); i++) {
 			if ((obs[i].isValid())) {
 				Point location = obs[i].getLocation();
@@ -288,8 +288,8 @@ vector<shared_ptr<AbstractTask>> StateMachineLTL::eventNewDisturbance(
 		nearestEast.getDistance(), nearestEast.getAngle());
 
 	logger.printf("(4) checking whether agent can move at least %fm in each direction...\n", 0.35);
-	bool westDirectionSafe = abs(nearestWest.getLocation().y) > 0.35; 
-	bool eastDirectionSafe = abs(nearestEast.getLocation().y) > 0.35;
+	bool westDirectionSafe = abs(nearestWest.getLocation().y) > 0.35 * 1.15; 
+	bool eastDirectionSafe = abs(nearestEast.getLocation().y) > 0.35 * 1.15;
 	logger.printf("west safe = %d  east safe = %d \n", westDirectionSafe, eastDirectionSafe);
 
 	// way is clear either direction S_w U S_e = {s1, s2, s3, s4}

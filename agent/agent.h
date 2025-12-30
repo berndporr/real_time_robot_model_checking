@@ -25,6 +25,8 @@ extern int nEvents;
 extern float detectionThreshold;
 extern bool onestep;
 
+// const float deltabot_scalar = 1.15; 
+
 // dirctory for the map
 const char run[] = "/tmp/";
 
@@ -37,10 +39,10 @@ const char southEast[] = "southEast";
 
 const float rightWheelCoeff = 1.034; 
 
-const float wheelbase = 0.147;
+const float wheelbase = 0.16;
 const float tol = wheelbase * 0.1;
 const float wheelRadius = 0.033;
-const float reactionThreshold = 0.22 + 0.06;
+const float reactionThreshold = 0.26 + 0.03;
 const float lidarMinRange = 0.15;
 
 ////////////////////////////////// Observations ///////////////////////////////////
@@ -270,7 +272,7 @@ struct StraightTask : AbstractTask {
 	float accSteeringError = 0;
 	float accSpeedError = 0;
 
-	float disturbanceLookahead = 4; 
+	float disturbanceLookahead = 4.6; 
 
 	vector<Observation> prevTrackingObs;
 
@@ -303,7 +305,9 @@ struct Rotate90Task : AbstractTask {
 
 		float omega = getMotorAngularVelocity();
 		// fixme: numbers don't quite add up hence constant 2
-		float angle = startAngle + omega * taskDuration * 2.5;
+		float angle = startAngle + omega * taskDuration * 1.3;
+
+		logger.printf("angle turned =  %f", abs(angle - startAngle));
 
 		if (abs(angle - startAngle) > M_PI/2) {
 			tr.result = ResultCodes::disturbance_gone;
@@ -346,7 +350,7 @@ struct StateMachineLTL : AbstractPlanner {
 	vector<StateTransition> trans;
 
 	// fixme: invalid obs when increased
-	float lateralHorizon = 0.5; // m
+	float lateralHorizon = 0.5 * 1.15; // m
 
 	StateMachineLTL(int _nStates) {
 		graph = new list<int>[_nStates]();
