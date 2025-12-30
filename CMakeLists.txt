@@ -20,7 +20,7 @@ include_directories(${CURL_INCLUDE_DIR})
 
 add_subdirectory(agent)
 add_subdirectory(wheeleddrive)
-add_subdirectory(rplidar_rock)
+#add_subdirectory(rplidar_rock)
 
 add_executable(autoctrl autoctrl.cpp)
 target_link_libraries(autoctrl c1lidarrpi deltabotdrive pthread agent ncurses)

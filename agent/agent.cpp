@@ -166,6 +166,7 @@ AbstractTask::TaskResult StraightTask::taskExecutionStep(float samplingrate,
 	// delay to stop things catching 
 	// but better if distance dependent 
 	// on the motor speed
+	vector<Observation> cluster;
 	if (taskDuration > 0.5 * 1.15) {
 		for (unsigned i = 0; i < obs.size(); i++) {
 			if ((obs[i].isValid())) {
@@ -174,7 +175,11 @@ AbstractTask::TaskResult StraightTask::taskExecutionStep(float samplingrate,
 					&& (abs(location.y) <= wheelbase) 
 					&& (location.x > lidarMinRange) 
 					&& (location.x < minx)) {
-					disturbance = obs[i];
+
+					cluster.push_back(obs[i]);
+					if (cluster.size() > 2) {
+						disturbance = obs[i];
+					}
 					minx = location.x;
 				}
 			} 
