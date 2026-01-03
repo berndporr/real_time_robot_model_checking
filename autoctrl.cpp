@@ -15,6 +15,9 @@ const float maxDetectRange = 1.0;
 bool running = true;
 bool onestep = false;
 
+const char loggingFilename[] = "/tmp/autoctrl.txt";
+const char resourceLoggingFilename[] = "/tmp/usage.txt";
+
 // every 200 ms
 // 8192 data points 
 // (invalid: corrupted/outside detection zone)
@@ -66,7 +69,7 @@ void sig_handler(int signo) {
 
 int main(int argc, char* argv[]) { 
     signal(SIGINT, sig_handler);
-    logger.startLogging("/data/deltabot/autoctrl.txt", true);
+    logger.startLogging(loggingFilename, true);
 
     if (argc > 1) {
         onestep = true;
@@ -143,7 +146,7 @@ int main(int argc, char* argv[]) {
     }
 
 
-    logger.startResourceLogging("/data/deltabot/usage.txt");
+    logger.startResourceLogging(resourceLoggingFilename);
     
     while(running) {
         // blockingff

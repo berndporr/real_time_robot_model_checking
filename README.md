@@ -13,13 +13,14 @@ make
 
 ## How to run
 
-Note the program logs into /data at the moment. You need to
-change:
+Note the program logs into /tmp at the moment. 
+
+Change:
 ```
-logger.startLogging("/data/deltabot/autoctrl.txt", true);
-logger.startResourceLogging("/data/deltabot/usage.txt");
+const char loggingFilename[] = "/tmp/autoctrl.txt";
+const char resourceLoggingFilename[] = "/tmp/usage.txt";
 ```
-in `autoctrl.cpp`.
+in `autoctrl.cpp` to log to a different location.
 
 Then do:
 ```
