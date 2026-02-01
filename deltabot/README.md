@@ -1,30 +1,30 @@
-# Modelchecking on the deltabot
+# Deltabot
 
-## Prerequisites
+![alt tag](c1lidar/lidar_on_robot.jpg)
 
-Install the C1 lidar library: https://github.com/berndporr/c1lidar
+## Hardware
 
-## How to compile
+- Deltabot: https://github.com/berndporr/deltabot
+- 360 degree 2D laser scanner, RPLIDAR C1MB by Slamtec: https://www.slamtec.com/en/c1
 
-```
-cmake .
-make
-```
+## Software
 
-## How to run
+### Prerequisites 
 
-Note the program logs into /tmp at the moment. 
+Install the following SDKs:
 
-Change:
-```
-const char loggingFilename[] = "/tmp/autoctrl.txt";
-const char resourceLoggingFilename[] = "/tmp/usage.txt";
-```
-in `autoctrl.cpp` to log to a different location.
+- Lidar - [c1lidar](c1lidar)
 
-Then do:
-```
-cmake .
-make
-./autoctrl
-```
+### Compile 
+
+Generate the build files
+
+```cmake .```
+
+Compile the program
+
+```make```
+
+### Run
+
+```sudo ./autoctrl```
