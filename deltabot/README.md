@@ -9,7 +9,9 @@
 
 ## Software
 
-### Prerequisites 
+### Prerequisites
+
+This software requires Debian trixie.
 
 Install the following SDKs:
 

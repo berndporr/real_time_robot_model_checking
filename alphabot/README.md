@@ -13,6 +13,8 @@
 
 ### Prerequisites 
 
+This software requires Debian bullseye.
+
 Install the following SDKs:
 
 - Servos - [sdk](sdk)
