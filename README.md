@@ -6,10 +6,10 @@
 - ALICE MILLER, University of Glasgow, UK
 
 This repository contains instructions how to run the code on two different
-robot platforms: the alphabot and the deltabot.
+robot platforms: the Alphabot and the Deltabot.
 
 ## Alphabot
-https://github.com/berndporr/alphabot
+[alphabot](alphabot)
 
 ## Deltabot
-https://github.com/berndporr/deltabot
+[deltabot](deltabot)

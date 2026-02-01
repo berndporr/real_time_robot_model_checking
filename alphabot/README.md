@@ -16,7 +16,7 @@
 Install the following SDKs:
 
 - Servos - [sdk](sdk)
-- Lidar - [rplidar_rpi)(rplidar_rpi)
+- Lidar - [rplidar_rpi](rplidar_rpi)
 
 ### Compile 
 
