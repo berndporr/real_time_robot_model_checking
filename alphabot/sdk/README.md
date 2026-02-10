@@ -48,8 +48,6 @@ sudo make install
 
 ## Usage
 
-The online documentation is here: https://berndporr.github.io/alphabot/
-
 ### Start/stop
 
 Start the communication with the robot:

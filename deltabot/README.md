@@ -11,7 +11,7 @@
 
 ### Prerequisites
 
-This software requires Debian trixie.
+This software requires Armbian/Debian trixie.
 
 Install the following SDKs:
 
@@ -29,4 +29,4 @@ Compile the program
 
 ### Run
 
-```sudo ./autoctrl```
+```./autoctrl```

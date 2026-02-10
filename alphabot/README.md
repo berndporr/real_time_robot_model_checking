@@ -13,7 +13,7 @@
 
 ### Prerequisites 
 
-This software requires Debian bullseye.
+This software requires Raspbian/Debian bullseye.
 
 Install the following SDKs:
 
