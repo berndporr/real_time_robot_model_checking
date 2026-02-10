@@ -1,5 +1,7 @@
 # Real-Time Model Checking for Closed-Loop Robot Reactive Planning
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18601811.svg)](https://doi.org/10.5281/zenodo.18601811)
+
 - CHRISTOPHER CHANDLER, University of Glasgow, UK
 - BERND PORR, University of Glasgow, UK
 - GIULIA LAFRATTA, University of Glasgow, UK
