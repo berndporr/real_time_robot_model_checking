@@ -1,10 +1,41 @@
-Supporting code for the case study in Chapter 4.   
+# Data availability
 
-Data is available at https://doi.org/10.5525/gla.researchdata.2012
+Raw data for this analysis is available to download at https://doi.org/10.5525/gla.researchdata.2012 and can be located in subfolder `case_study_1`. Curated datasets used for the analyses are available on this repo. 
+
+# Steps to reproduce
+
+The recommended workflow for collecting new data and generating results is illustrated below:
 
 ![analysis](analysis.svg)
 
-# cul-de-sac
+
+## Collect data
+
+Our analysis runs two experiments, one in a cul-de-sac scenario and one in a playground environment with one free-standing object and a cul-de-sac.  Each experiment has a unique design but collects similar data.  
+
+### Cul-de-sac
+
+This is a quantitative close-study of the behaviour of our robot in a cul-de-sac compared to the baseline.  As shown in the figure below, our experiment has a 3x2 between-factors design, as we are interested in a comparitive quantative analysis of average robot behaviour between 2 methods from 3 starting positions.  
+
+![culdesac](culdesac.svg)
+
+We collected 15 runs for every method x starting position group resulting in 90 runs in total.  The robot is instrumented to produce a log `autoctrl.txt`, data dumps for model checking memory usage at runtime  `dfs<MAP_INDEX>.dat`, proces memory usage stats from the linux top utility in `usage.txt`.  In a addition, our analysis requires a video of each run in `.mp4`.  Note that the robot should have an LED on it which is significantly brighter than the environment to make trajectory extraction using optical flow more reliable.
+
+### Playground
+
+![playground](playground.svg)
+
+
+## Clean data
+
+## Build datasets
+
+## Run analyses
+
+
+
+
+<!-- # cul-de-sac
 
 This folder contains analysis scripts and jupyter notebooks for the cul-de-sac scenario.  The analysis assumes that there is a repository of raw data in some directory `repo` and outputs all interim files to the repository during cleaning.  
 
@@ -54,7 +85,7 @@ As above, we extract and clean log data using `clean_logs.ipynb` and generate th
 
 ### Running analysis
 
-As there are only two comparisons, we run `analysis.ipynb` using the data directly from `repo`. 
+As there are only two comparisons, we run `analysis.ipynb` using the data directly from `repo`.  -->
   
 
 
