@@ -11,7 +11,7 @@ The recommended workflow for collecting new data and generating results is illus
 
 ## Collect data
 
-Our analysis runs two experiments, one in a cul-de-sac scenario and one in a playground environment with one free-standing object and a cul-de-sac.  Each experiment has a unique design but collects similar data uing built-in instrumentation and a camera.  
+Our analysis runs two experiments, one in a cul-de-sac scenario and one in a playground environment with one free-standing object and a cul-de-sac.  Each experiment has a unique design but collects similar data uaing a built-in logger and an external camera.  
 
 ### Cul-de-sac
 
