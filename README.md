@@ -15,3 +15,6 @@ The subdirectory [alphabot](alphabot) contains the instructions and code how to 
 
 ## Deltabot
 The subdirectory [deltabot](deltabot) contains the instructions and code how to run the modelchecker on the Deltabot.
+
+## Deltabot
+The subdirectory [analysis](analysis) contains analysis scripts and instructions on how to reproduce.
