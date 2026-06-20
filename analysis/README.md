@@ -27,7 +27,7 @@ The same data is collected in our playground experiment (shown below), except us
 
 ![playground](playground.svg)
 
-We collected 2 runs for each method, resulting in 4 runs.  For more details on experimental protocol see our paper. 
+We collected 2 runs for each method, resulting in 4 runs.  For precise details on  experimental protocol see our paper. 
 
 ## Clean data
 
