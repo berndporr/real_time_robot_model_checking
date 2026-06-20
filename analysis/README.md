@@ -19,7 +19,7 @@ As shown in the figure below (panel A), our cul-de-sac experiment has a 3x2 desi
 
 ![culdesac](culdesac.svg)
 
-We collected 15 runs for every method x starting position group resulting in 90 runs in total.  The robot is instrumented to produce a log `autoctrl.txt`, data dumps for model checking memory usage at runtime  `dfs<MAP_INDEX>.dat`, proces memory usage stats from the linux top utility in `usage.txt`.  In a addition, our analysis requires a video of each run in `.mp4`.  Note that the robot should have an LED on it which is significantly brighter than the environment to make later trajectory extraction using the optical flow in OpenCV more reliable.
+We collected 15 runs for every method x starting position group resulting in 90 runs in total.  The robot is instrumented to produce a log `autoctrl.txt`, data dumps for model checking memory usage at runtime  `dfs<SCAN_INDEX>.dat`, proces memory usage stats from the linux top utility in `usage.txt`.  In a addition, our analysis requires a video of each run in `.mp4`.  Note that the robot should have an LED on it which is significantly brighter than the environment to make later trajectory extraction using the optical flow in OpenCV more reliable.
 
 ### Playground
 
