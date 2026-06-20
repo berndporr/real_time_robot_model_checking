@@ -15,7 +15,7 @@ Our analysis runs two experiments, one in a cul-de-sac scenario and one in a pla
 
 ### Cul-de-sac
 
-As shown in the figure below, our cul-de-sac experiment has a 3x2 design, as our focus is on analysis of average robot behaviour between 2 methods from 3 starting positions.  
+As shown in the figure below, our cul-de-sac experiment has a 3x2 design.
 
 ![culdesac](culdesac.svg)
 
