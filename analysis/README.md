@@ -2,7 +2,7 @@ Supporting code for the case study in Chapter 4.
 
 Data is available at https://doi.org/10.5525/gla.researchdata.2012
 
-![analysis](analysis.png)
+![analysis](analysis.svg)
 
 # cul-de-sac
 
