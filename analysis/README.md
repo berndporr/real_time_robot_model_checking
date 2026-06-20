@@ -23,8 +23,11 @@ We collected 15 runs for every method x starting position group resulting in 90 
 
 ### Playground
 
+The same data is collected in our playground experiment (shown below), except using a different design.  
+
 ![playground](playground.svg)
 
+We collected 2 runs for each method, resulting in 4 runs.  For more details on experiment design see our paper. 
 
 ## Clean data
 
