@@ -39,3 +39,7 @@
 
 # debug information files
 *.dwo
+
+# jupyter artefacts
+.ipynb_checkpoints
+.virtual_documents
