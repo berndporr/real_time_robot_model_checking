@@ -8,7 +8,7 @@
 - ALICE MILLER, University of Glasgow, UK
 
 This repository contains instructions how to run the code on two different
-robot platforms: the Alphabot and the Deltabot.
+robot platforms: the Alphabot and the Deltabot.  It also contains links to raw data, relevant curated datasets and analysis scripts for reproducing the results. 
 
 ## Alphabot
 The subdirectory [alphabot](alphabot) contains the instructions and code how to run the modelchecker on the Alphabot.
