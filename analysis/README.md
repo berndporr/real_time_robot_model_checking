@@ -2,6 +2,8 @@ Supporting code for the case study in Chapter 4.
 
 Data is available at https://doi.org/10.5525/gla.researchdata.2012
 
+![analysis](analysis.png)
+
 # cul-de-sac
 
 This folder contains analysis scripts and jupyter notebooks for the cul-de-sac scenario.  The analysis assumes that there is a repository of raw data in some directory `repo` and outputs all interim files to the repository during cleaning.  
