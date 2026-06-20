@@ -15,7 +15,7 @@ Our analysis runs two experiments, one in a cul-de-sac scenario and one in a pla
 
 ### Cul-de-sac
 
-This is a quantitative close-study of the behaviour of our robot in a cul-de-sac compared to the baseline.  As shown in the figure below, our experiment has a 3x2 between-factors design, as we are interested in a comparitive quantative analysis of average robot behaviour between 2 methods from 3 starting positions.  
+As shown in the figure below, our cul-de-sac experiment has a 3x2 design, as we are interested in a comparitive quantative analysis of average robot behaviour between 2 methods from 3 starting positions.  
 
 ![culdesac](culdesac.svg)
 
