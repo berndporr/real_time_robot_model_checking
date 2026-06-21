@@ -98,7 +98,7 @@ Extracting trajectories and preparing them for analysis involves the following s
         | `position` | `str` | Robot starting position |
         | `run` | `int` | Run number within the group |
 
-    All relevant code for this is provided in `cul-de-sac/clean_traj.ipynb`. We iterate that this process needs to be followed for each run as optical flow in OpenCV is not reliable enough for the process to be fully automated. 
+    All relevant code for this is provided in `cul-de-sac/clean_traj.ipynb`. We reiterate that this process needs to be followed for each run as optical flow in OpenCV is not reliable enough for the process to be fully automated. 
 
 
 
