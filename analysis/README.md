@@ -1,6 +1,6 @@
 # Data availability
 
-Raw data for this analysis is available to download at https://doi.org/10.5525/gla.researchdata.2012 and can be located in subfolder `case_study_1`. Curated datasets used for the analyses are available on this repo. 
+The repos containing raw data for this analysis is available to download at https://doi.org/10.5525/gla.researchdata.2012 and the collected data can be located in subfolder `case_study_1`. Curated datasets used for the analyses are available on this repo. 
 
 # Steps to reproduce
 
