@@ -29,7 +29,53 @@ The same data is collected in our playground experiment (shown below), except us
 
 We collected 2 runs for each method, resulting in 4 runs.  For precise details on  experimental protocol see our paper. 
 
+The folder "case_study_1" contains data for the extended case study.  Structure:
+
+
 ## Clean data
+
+For compatibility with data cleaning scripts, the data should be stored in a folder with the following structure:
+
+```
+/data
+     |___/cul-de-sac
+     |       |___/0000
+     |	     |___ ...
+     |	     |___/2114
+     |___/playground
+             |___/01
+	         |___/02
+	         |___/11
+             |___/12
+```
+
+There is a subdirectory for each scenario which in turn contains subdirectories for each run. The encoding for the run directories for each scenario have the meaning below.  We recommend following this same encoding scheme as our cleaning scripts expect them. 
+
+ Cul-de-sac run directory encoding (`PMRR`):
+
+| Character(s) | Meaning | Values |
+|---|---|---|
+| 1st digit (`P`) | Starting position | `0` = Position 1, `1` = Position 2 |
+| 2nd digit (`M`) | Method | `0` = Method A, `1` = Method B, `2` = Method C |
+| 3rd–4th digits (`RR`) | Run number (zero-padded) | `00`–`14` (15 runs per group) |
+
+ Playground run directory encoding (`MR`):
+
+| Character(s) | Meaning | Values |
+|---|---|---|
+| 1st digit (`M`) | Method | `0` = Method A, `1` = Method B |
+| 2nd digit (`R`) | Run number | `1`–`2` (2 runs per method) |
+
+### Clean trajectories
+
+Extracting trajectories and preparing them for analysis involves the following steps:
+
+1) Extract trajectories from `.mp4` using `robotracker.py` with the output saved in the same directory.  Note that you will have to adjust the crop settings in the script to focus on the scenario appropriately.   
+
+2) 
+
+
+
 
 ## Build datasets
 
