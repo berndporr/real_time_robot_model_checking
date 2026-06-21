@@ -29,9 +29,6 @@ The same data is collected in our playground experiment (shown below), except us
 
 We collected 2 runs for each method, resulting in 4 runs.  For precise details on  experimental protocol see our paper. 
 
-The folder "case_study_1" contains data for the extended case study.  Structure:
-
-
 ## Clean data
 
 For compatibility with data cleaning scripts, the data should be stored in a folder with the following structure:
