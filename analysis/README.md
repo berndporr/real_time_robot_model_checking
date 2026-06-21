@@ -52,8 +52,8 @@ There is a subdirectory for each scenario which in turn contains subdirectories 
 
 | Character(s) | Meaning | Values |
 |---|---|---|
-| 1st digit (`P`) | Starting position | `0` = Position 1, `1` = Position 2 |
-| 2nd digit (`M`) | Method | `0` = Method A, `1` = Method B, `2` = Method C |
+| 1st digit (`P`) | Starting position |  `0` = Centre, `1` = Right, `2` = Left |
+| 2nd digit (`M`) | Method | `0` = Baseline, `1` = Model Checking |
 | 3rd–4th digits (`RR`) | Run number (zero-padded) | `00`–`14` (15 runs per group) |
 
  Playground run directory encoding (`MR`):
