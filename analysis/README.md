@@ -29,7 +29,7 @@ The same data is collected in our playground experiment (shown below), except us
 
 We collected 2 runs for each method, resulting in 4 runs.  For precise details on  experimental protocol see our paper. 
 
-## Clean data
+## Prepare the data
 
 For compatibility with data cleaning scripts, the data should be stored in a folder with the following structure:
 
@@ -63,7 +63,7 @@ There is a subdirectory for each scenario which in turn contains subdirectories 
 | 1st digit (`M`) | Method | `0` = Baseline, `1` = Model Checking |
 | 2nd digit (`R`) | Run number | `1`–`2` (2 runs per method) |
 
-### Clean trajectories
+### Clean trajectories and logs
 
 Extracting trajectories and preparing them for analysis involves the following steps:
 
@@ -100,12 +100,67 @@ Extracting trajectories and preparing them for analysis involves the following s
 
     All relevant code for this is provided in `cul-de-sac/clean_traj.ipynb`. We reiterate that this process needs to be followed for each run as optical flow in OpenCV is not reliable enough for the process to be fully automated. 
 
+3. For the playground scenario, it is sufficient to extract trajectories using `robotracker.py` and use the trace file directly, as the analysis of trajectories in this case is qualitative.  However, videos of runs will have to be studies to calculate the time spent inside the cul-de-sac aspect of the playground environment.  The number of collisions will also have to be written down. 
 
+4. After trajectory and collision data has been curated, data needs to be extracted from logs.  This part is fully automated for each scenario.  The script `cul-de-sac/clean_logs.ipynb` extracts model checking memory usage, processing latency/plan details, and process memory usage for each run and dumps the data into `<run>.json`.  The script `playground/clean_logs.ipynb` does the same except it outputs seperate `.csv` files for plan details, model checking memory usage and process memory usage in the relevant run directory.  We use these files directly in the analysis, but in the cul-de-sac scenario we compile a curated dataset.
 
+### Build cul-de-sac dataset
 
+Once all the above steps have been completed, then each `cul-de-sac/<run>/<run>.json` should look something like:
 
+``` json
 
-## Build datasets
+{
+    "position": 0,                          // starting position
+    "method": "multi",                      // single = baseline, multi = model checking
+    "run": 0,                               // run index, 0 - 14
+    "traj_length": 912.2364737443509,       // trajectory length (pixels)
+    "collisions": 0,                        // number of recorded collisions
+    "accept1": "14",                        // accepting states for first plan
+    "path1": "0 2 13",                      // the generated path to the accepting state
+    "plan1": "right -> right -> default",   // 
+    "steps1": 2, 
+    "latency1": 12.517, 
+    "accept2": null, 
+    "path2": null, 
+    "plan2": null, 
+    "steps2": null, 
+    "latency2": null, 
+    "state_size": 4, 
+    "n_states": 15, 
+    "adj_list_compile": 184, 
+    "stack_compile": 12, 
+    "set_compile": 24, 
+    "max_stack_capacity": 8, 
+    "max_set_size": 9, 
+    "virt_min": 33416.0, 
+    "virt_max": 38560.0, 
+    "res_min": 4344.0, 
+    "res_max": 4344.0, 
+    "shr_min": 2844.0, 
+    "shr_max": 3300.0, 
+    "mem_perc_min": 0.4, 
+    "mem_total_min": 922.0, 
+    "mem_perc_max": 0.5, 
+    "mem_total_max": 922.0, 
+    "mem_free_min": 922.0, 
+    "mem_free_max": 922.0, 
+    "mem_used_min": 76.6, 
+    "mem_used_max": 80.4, 
+    "cache_min": 201.0, 
+    "cache_max": 209.0, 
+    "swap_total_min": 100.0, 
+    "swap_total_max": 100.0, 
+    "swap_free_min": 100.0, 
+    "swap_free_max": 100.0, 
+    "swap_used_min": 0.0, 
+    "swap_used_max": 0.0, 
+    "process_uptime": 10.567
+}
+
+```
+
+This represnets a row in the final dataset.  If this holds for each run, the execute `cul-de-sac/build_dataset.py` to generate the `DATASET.csv` for the analysis. Again this aspect of the process is fully automated, but we suggest checking the data first. 
 
 ## Run analyses
 
