@@ -118,22 +118,22 @@ Once all the above steps have been completed, then each `cul-de-sac/<run>/<run>.
     "collisions": 0,                        // number of recorded collisions
     "accept1": "14",                        // accepting states for first plan
     "path1": "0 2 13",                      // the generated path to the accepting state
-    "plan1": "right -> right -> default",   // 
-    "steps1": 2, 
-    "latency1": 12.517, 
-    "accept2": null, 
-    "path2": null, 
-    "plan2": null, 
-    "steps2": null, 
-    "latency2": null, 
-    "state_size": 4, 
-    "n_states": 15, 
-    "adj_list_compile": 184, 
-    "stack_compile": 12, 
-    "set_compile": 24, 
-    "max_stack_capacity": 8, 
-    "max_set_size": 9, 
-    "virt_min": 33416.0, 
+    "plan1": "right -> right -> default",   // the extracted tasks mapped to transitions
+    "steps1": 2,                            // the number of steps prior to the final step
+    "latency1": 12.517,                     // the processing latency for plan generation
+    "accept2": null,                        // accepting states for possible second plan
+    "path2": null,                          // the generated path to the accepting state
+    "plan2": null,                          // the extracted tasks mapped to transitions
+    "steps2": null,                         // the number of steps prior to the final step
+    "latency2": null,                       // the processing latency for plan generation
+    "state_size": 4,                        // the size of a state (bytes)
+    "n_states": 15,                         // the number of states in the model (bytes)
+    "adj_list_compile": 184,                // the compile time memory of the graph adjency list (bytes)
+    "stack_compile": 12,                    // the compile time memory of the fDFS stack (bytes)
+    "set_compile": 24,                      // the compile time memory of the fDFS set (bytes)
+    "max_stack_capacity": 8,                // the maximum number of states in the stack at runtime
+    "max_set_size": 9,                      // the maximum number of states in the set at runtime
+    "virt_min": 33416.0,                    
     "virt_max": 38560.0, 
     "res_min": 4344.0, 
     "res_max": 4344.0, 
