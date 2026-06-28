@@ -137,9 +137,9 @@ Once all the above steps have been completed, then each `cul-de-sac/<run>/<run>.
     "virt_min": 33416.0,                    
     "virt_max": 38560.0, 
     "res_min": 4344.0, 
-    "res_max": 4344.0,                      // that maximum amount of reserved memory for a run 
+    "res_max": 4344.0,                      // the maximum amount of process reserved memory for a run 
     "shr_min": 2844.0,                      
-    "shr_max": 3300.0,                      // the maximum amount of shared memory for a run
+    "shr_max": 3300.0,                      // the maximum amount of process shared memory for a run
     "mem_perc_min": 0.4, 
     "mem_total_min": 922.0, 
     "mem_perc_max": 0.5, 
@@ -165,4 +165,4 @@ This represnets a row in the final dataset.  Note that the majority of data coll
 
 ## Run analyses
 
-To run the cul-de-sac analysis, run `cul-de-sac/analysis.ipynb`.  Note that it expects `DATASET.csv` to be in the sam directory.  To run the playground analysis, run `playground/analysis.ipynb`.  Note that you will need to change the `repo` variable to the absolute path to your data repo first. 
+To run the cul-de-sac analysis, run `cul-de-sac/analysis.ipynb`.  Note that it expects `DATASET.csv` to be in the same directory.  To run the playground analysis, run `playground/analysis.ipynb`.  You will need to change the `repo` variable to the absolute path to your data repo first. 
