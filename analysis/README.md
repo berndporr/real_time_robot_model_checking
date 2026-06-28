@@ -56,12 +56,13 @@ There is a subdirectory for each scenario which in turn contains subdirectories 
 | 2nd digit (`M`) | Method | `0` = Baseline, `1` = Model Checking |
 | 3rd–4th digits (`RR`) | Run number (zero-padded) | `00`–`14` (15 runs per group) |
 
- Playground run directory encoding (`MR`):
+ Playground run directory encoding (`RM`):
 
 | Character(s) | Meaning | Values |
 |---|---|---|
-| 1st digit (`M`) | Method | `0` = Baseline, `1` = Model Checking |
-| 2nd digit (`R`) | Run number | `1`–`2` (2 runs per method) |
+| 1st digit (`R`) | Run number | `0`–`1` (2 methods per run) |
+| 2nd digit (`M`) | Method | `1` = Baseline, `2` = Model Checking |
+
 
 ### Clean trajectories and logs
 
