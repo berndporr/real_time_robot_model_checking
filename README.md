@@ -11,7 +11,7 @@ the Alphabot and the Deltabot.  It also contains links to raw data,
 relevant curated datasets and analysis scripts for reproducing the
 results.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18601811.svg)](https://doi.org/10.5281/zenodo.18601811)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18601812.svg)](https://doi.org/10.5281/zenodo.18601812)
 
 ## Alphabot
 The subdirectory [alphabot](alphabot) contains the instructions and code how to run the modelchecker on the Alphabot.
