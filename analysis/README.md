@@ -60,7 +60,7 @@ There is a subdirectory for each scenario which in turn contains subdirectories 
 
 | Character(s) | Meaning | Values |
 |---|---|---|
-| 1st digit (`R`) | Run number | `0`–`1` (2 methods per run) |
+| 1st digit (`R`) | Run | `0`–`1` (2 runs/comparisons) |
 | 2nd digit (`M`) | Method | `1` = Baseline, `2` = Model Checking |
 
 
